@@ -31,7 +31,7 @@ fi
 
 # --- 3. Download the docker image
 echo "STEP 4: Downloading the docker image"
-docker pull ghcr.io/christian2000/inkcut:latest
+docker pull ghcr.io/uppsala-makerspace/inkcut:latest
 
 # --- 4. Create and Configure Systemd Service ---
 echo "STEP 4: Creating systemd service file at /etc/systemd/system/inkcut-docker.service..."
@@ -55,13 +55,13 @@ ExecStartPre=-/usr/bin/docker rm inkcut-container || true
 # Pull the latest image - uncomment the last line to automatically update on startup.
 # This is NOT recommended since startup then takes a long time.
 # To manually update run
-# sudo docker pull ghcr.io/christian2000/inkcut:latest
-# ExecStartPre=/usr/bin/docker pull ghcr.io/christian2000/inkcut:latest
+# sudo docker pull ghcr.io/uppsala-makerspace/inkcut:latest
+# ExecStartPre=/usr/bin/docker pull ghcr.io/uppsala-makerspace/inkcut:latest
 
 # Start the container
 # --privileged is used to grant access to all USB devices on the host
 # -p 80:80 maps the container's web server to the Pi's port 80
-ExecStart=/usr/bin/docker run --name inkcut-container --privileged -p 80:80 ghcr.io/christian2000/inkcut:latest
+ExecStart=/usr/bin/docker run --name inkcut-container --privileged -p 80:80 ghcr.io/uppsala-makerspace/inkcut:latest
 
 [Install]
 WantedBy=multi-user.target

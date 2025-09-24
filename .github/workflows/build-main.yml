@@ -34,6 +34,6 @@ jobs:
           context: .
           platforms: linux/arm/v7
           push: true
-          tags: ghcr.io/christian2000/inkcut:latest
-          cache-from: type=registry,ref=ghcr.io/christian2000/inkcut:buildcache
-          cache-to: type=registry,ref=ghcr.io/christian2000/inkcut:buildcache,mode=max
+          tags: ghcr.io/uppsala-makerspace/inkcut:latest
+          cache-from: type=registry,ref=ghcr.io/uppsala-makerspace/inkcut:buildcache
+          cache-to: type=registry,ref=ghcr.io/uppsala-makerspace/inkcut:buildcache,mode=max

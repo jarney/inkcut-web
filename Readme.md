@@ -6,7 +6,7 @@ Quick Start
 ---
 On a fresh Raspberry Pi, run the following command. This will download and execute the setup script, which handles everything for you.
 
-    curl -sSL https://raw.githubusercontent.com/christian2000/inkcut/main/setup.sh | sudo bash
+    curl -sSL https://raw.githubusercontent.com/uppsala-makerspace/inkcut/main/setup.sh | sudo bash
 
 this command can also be used to update both the raspberry pi and the docker image.
 
@@ -29,7 +29,7 @@ Updating to the latest image version
 ---
 To update to the latest version from github, run
 
-    curl -sSL https://raw.githubusercontent.com/christian2000/inkcut/main/setup.sh | sudo bash
+    curl -sSL https://raw.githubusercontent.com/uppsala-makerspace/inkcut/main/setup.sh | sudo bash
 
 this is the same command used for first time installation and will also update the software on the pi itself.
 
@@ -37,7 +37,7 @@ N.B. This will overwrite any changes to the definition of the inkcut-docker serv
 
 If you do not want to update the service definition or update the pi, run
 
-   docker pull ghcr.io/christian2000/inkcut:latest
+   docker pull ghcr.io/uppsala-makerspace/inkcut:latest
    sudo systemctl restart inkcut-docker.service
 
 Accessing the Application
