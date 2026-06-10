@@ -10,7 +10,9 @@ RUN apt update && apt install -y --no-install-recommends \
 
 RUN python3 -m venv /opt/venv --system-site-packages
 RUN /opt/venv/bin/pip install --upgrade pip setuptools wheel
-RUN /opt/venv/bin/pip install inkcut
+RUN mkdir -p /inkcut-source
+COPY inkcut-2.1.7.tar.gz /inkcut-source
+RUN /opt/venv/bin/pip install /inkcut-source/inkcut-2.1.7.tar.gz
 
 FROM ubuntu:22.04
 
@@ -55,6 +57,7 @@ ARG TARGETARCH
 RUN case ${TARGETARCH} in \
         "arm") FB_ARCH="armv7";; \
         "arm64") FB_ARCH="arm64";; \
+        "amd64") FB_ARCH="amd64";; \
         *) echo "Unsupported architecture: ${TARGETARCH}"; exit 1;; \
     esac && \
     curl -fsSL https://github.com/filebrowser/filebrowser/releases/latest/download/linux-${FB_ARCH}-filebrowser.tar.gz \

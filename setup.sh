@@ -31,7 +31,12 @@ fi
 
 # --- 3. Download the docker image
 echo "STEP 4: Downloading the docker image"
-docker pull ghcr.io/uppsala-makerspace/inkcut:latest
+# We don't want to use their version, we'll build our own image
+# to get the latest inkcut.
+#docker pull ghcr.io/uppsala-makerspace/inkcut:latest
+# Keep this until Inkcut changes get upstreamed
+cp -Rvf ../inkcut/dist/inkcut-2.1.7.tar.gz .
+docker build -f Dockerfile -t ghcr.io/uppsala-makerspace/inkcut:latest .
 
 # --- 4. Create and Configure Systemd Service ---
 echo "STEP 4: Creating systemd service file at /etc/systemd/system/inkcut-docker.service..."
