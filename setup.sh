@@ -66,7 +66,7 @@ ExecStartPre=-/usr/bin/docker rm inkcut-container || true
 # Start the container
 # --privileged is used to grant access to all USB devices on the host
 # -p 80:80 maps the container's web server to the Pi's port 80
-ExecStart=/usr/bin/docker run --name inkcut-container --privileged -p 80:80 ghcr.io/uppsala-makerspace/inkcut:latest
+ExecStart=/usr/bin/docker run --name inkcut-container --privileged -p 80:80 /home/spark/uploads:/uploads ghcr.io/uppsala-makerspace/inkcut:latest
 
 [Install]
 WantedBy=multi-user.target
