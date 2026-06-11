@@ -29,6 +29,10 @@ else
     echo "You may need to run 'sudo usermod -aG docker <your-user>' manually."
 fi
 
+# For raspberry PI, this is now required
+# in order to maintain control of the system.
+usermod -aG sudo "$SUDO_USER"
+
 # --- 3. Download the docker image
 echo "STEP 4: Downloading the docker image"
 # We don't want to use their version, we'll build our own image
